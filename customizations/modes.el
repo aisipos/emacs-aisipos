@@ -10,3 +10,7 @@
 ;;uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
+
+; smooth scrolling
+(require 'centered-cursor-mode)
+(global-centered-cursor-mode t)

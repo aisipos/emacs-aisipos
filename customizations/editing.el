@@ -37,8 +37,3 @@
 
 ; no newlines past EOF
 (setq next-line-add-newlines nil)
-
-
-; smooth scrolling
-;;(require 'centered-cursor-mode)
-;;(global-centered-cursor-mode t)

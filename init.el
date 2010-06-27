@@ -39,7 +39,7 @@
 (vendor 'color-theme)
 ;; (vendor 'textmate)
 ;; (vendor 'nav)
-;; (vendor 'centered-cursor-mode)
+(vendor 'centered-cursor-mode)
 ;; (vendor 'browse-kill-ring)
 ;; (vendor 'yaml-mode)
 ;; (vendor 'rinari)
