@@ -10,5 +10,3 @@
 	    		 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
 )
 (toggle-fullscreen)
-(toggle-fullscreen)
-
