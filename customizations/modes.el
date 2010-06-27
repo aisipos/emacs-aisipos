@@ -7,3 +7,6 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;;uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
