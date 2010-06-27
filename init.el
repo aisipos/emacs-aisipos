@@ -36,7 +36,7 @@
 ; load third-party modes
 ; note: these are configured in customizations/my-modes.el
 
-;; (vendor 'color-theme)
+(vendor 'color-theme)
 ;; (vendor 'textmate)
 ;; (vendor 'nav)
 ;; (vendor 'centered-cursor-mode)
