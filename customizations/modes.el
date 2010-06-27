@@ -36,3 +36,7 @@
 (require 'magit)
 (autoload 'magit-status "magit" nil t)
 
+; winner -mode
+; allows you to go through your window configurations with c-x left and c-x right
+; (which otherwise are mapped to previous buffer and next bufer
+;(winner-mode)
