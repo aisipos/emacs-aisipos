@@ -9,4 +9,4 @@ and Alex Payne's emacs config.
 3. ido-mode
 4. ibuffer
 5. centered-cursor-mode
-6.
+6. magit

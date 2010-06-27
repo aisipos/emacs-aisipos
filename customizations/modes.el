@@ -31,3 +31,8 @@
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
 (setq ack-prompt-for-directory t)
+
+; Git
+(require 'magit)
+(autoload 'magit-status "magit" nil t)
+
