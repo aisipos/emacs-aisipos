@@ -24,3 +24,10 @@
 (require 'smart-tab)
 (global-smart-tab-mode 1)
 (setq smart-tab-using-hippie-expand nil)
+
+; Ack
+(autoload 'ack-same "full-ack" nil t)
+(autoload 'ack "full-ack" nil t)
+(autoload 'ack-find-same-file "full-ack" nil t)
+(autoload 'ack-find-file "full-ack" nil t)
+(setq ack-prompt-for-directory t)

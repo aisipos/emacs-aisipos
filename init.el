@@ -43,7 +43,7 @@
 ;; (vendor 'browse-kill-ring)
 ;; (vendor 'yaml-mode)
 ;; (vendor 'rinari)
-;; (vendor 'full-ack)
+(vendor 'full-ack)
 ;; (vendor 'textile-minor-mode)
 ;; (vendor 'magit)
 ;; (vendor 'save-visited-files)
