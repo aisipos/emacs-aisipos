@@ -14,3 +14,8 @@
 ; smooth scrolling
 (require 'centered-cursor-mode)
 (global-centered-cursor-mode t)
+
+;markdown
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
