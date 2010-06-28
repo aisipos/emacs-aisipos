@@ -41,7 +41,7 @@
 ;Don't map TAB to yasnippet
 ;In fact, set it to something we'll never use because
 ;we'll only ever trigger it indirectly.
-;;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
+(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
 
@@ -54,3 +54,9 @@
 ;;ido's definition of "everywhere" is somewhat limited
 (ido-everywhere t)
 ;;TODO: See http://stackoverflow.com/questions/905338/can-i-use-ido-completing-read-instead-of-completing-read-everywhere
+
+;;auto-complete
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+(require 'auto-complete-config)
+(ac-config-default)
+

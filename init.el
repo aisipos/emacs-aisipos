@@ -36,8 +36,9 @@
 ; load third-party modes
 ; note: these are configured in customizations/my-modes.el
 
-(vendor 'yasnippet)
 (vendor 'color-theme)
+(vendor 'auto-complete)
+(vendor 'yasnippet)
 (vendor 'pymacs)
 ;; (vendor 'textmate)
 ;; (vendor 'nav)
@@ -73,3 +74,5 @@
 
 ; start a server for usage with emacsclient
 (add-hook 'after-init-hook 'server-start)
+
+(put 'dired-find-alternate-file 'disabled nil)
