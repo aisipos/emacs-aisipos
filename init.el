@@ -38,6 +38,7 @@
 
 (vendor 'yasnippet)
 (vendor 'color-theme)
+(vendor 'pymacs)
 ;; (vendor 'textmate)
 ;; (vendor 'nav)
 (vendor 'centered-cursor-mode)
