@@ -1,4 +1,6 @@
 ;;From EnigmaCurry
+;;TODO: See also Tavis Rudd's Emacs config
+;; http://bitbucket.org/tavisrudd/emacs.d/src/tip/dss-completion.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Python mode customizations
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -171,25 +173,6 @@
 ;;; End Auto Completion
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Flymake with Pyflakes
-;; Disabling for now, it's really quite buggy.
-
-;; (require 'flymake)
-;; (load-library "flymake-cursor")
-;; (when (load "flymake" t)
-;;   (defun flymake-pyflakes-init ()
-;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
-;;                        'flymake-create-temp-inplace))
-;;            (local-file (file-relative-name
-;;                         temp-file
-;;                         (file-name-directory buffer-file-name))))
-;;       (list "pyflakes" (list local-file))))
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                '("\\.py\\'" flymake-pyflakes-init)))
-;; (add-hook 'find-file-hook 'flymake-find-file-hook)
-;; (custom-set-faces
-;;  '(flymake-errline ((((class color)) (:background "DarkRed"))))
-;;  '(flymake-warnline ((((class color)) (:background "DarkBlue")))))
 
 
 ;;Autofill comments
@@ -229,3 +212,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+;;Flymake with Pyflakes
+;;Disabling for now, it's really quite buggy.
+
+(require 'flymake)
+(load-library "flymake-cursor")
+(when (load "flymake" t)
+  (defun flymake-pyflakes-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "pyflakes" (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.py\\'" flymake-pyflakes-init)))
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(custom-set-faces
+ '(flymake-errline ((((class color)) (:background "DarkRed"))))
+ '(flymake-warnline ((((class color)) (:background "DarkBlue")))))
