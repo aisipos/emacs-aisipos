@@ -12,8 +12,10 @@
 (setq uniquify-buffer-name-style 'reverse)
 
 ; smooth scrolling
-(require 'centered-cursor-mode)
-(global-centered-cursor-mode t)
+;;TODO: disabling for now since centered-cursor can prevent you from having
+;;a whole function on the screen. Find a better smooth scroller.
+;;(require 'centered-cursor-mode)
+;;(global-centered-cursor-mode t)
 
 ;markdown
 (require 'markdown-mode)
