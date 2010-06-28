@@ -36,6 +36,7 @@
 ; load third-party modes
 ; note: these are configured in customizations/my-modes.el
 
+(vendor 'yasnippet)
 (vendor 'color-theme)
 ;; (vendor 'textmate)
 ;; (vendor 'nav)

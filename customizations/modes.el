@@ -36,6 +36,15 @@
 (require 'magit)
 (autoload 'magit-status "magit" nil t)
 
+;;yasnippet - ideas from EnigmaCurry
+(require 'yasnippet)
+;Don't map TAB to yasnippet
+;In fact, set it to something we'll never use because
+;we'll only ever trigger it indirectly.
+;;(setq yas/trigger-key (kbd "C-c <kp-multiply>"))
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/snippets")
+
 ; winner -mode
 ; allows you to go through your window configurations with c-x left and c-x right
 ; (which otherwise are mapped to previous buffer and next bufer
