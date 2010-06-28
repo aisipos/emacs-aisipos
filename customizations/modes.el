@@ -49,3 +49,8 @@
 ; allows you to go through your window configurations with c-x left and c-x right
 ; (which otherwise are mapped to previous buffer and next bufer
 ;(winner-mode)
+
+;;ido
+;;ido's definition of "everywhere" is somewhat limited
+(ido-everywhere t)
+;;TODO: See http://stackoverflow.com/questions/905338/can-i-use-ido-completing-read-instead-of-completing-read-everywhere
