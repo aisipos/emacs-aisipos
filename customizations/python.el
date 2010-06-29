@@ -129,7 +129,9 @@
 (define-key py-mode-map "\t" 'yas/expand)
 (add-hook 'python-mode-hook
           (lambda ()
-            (set (make-local-variable 'yas/trigger-fallback) 'ryan-python-expand-after-yasnippet)))
+            (progn
+              (message "Set yas/trigger-fallback to ryan-python-expand-after-yasnippet")
+              (set (make-local-variable 'yas/trigger-fallback) 'ryan-python-expand-after-yasnippet))))
 (defun ryan-indent ()
   "Runs indent-for-tab-command but returns t if it actually did an indent; nil otherwise"
   (let ((prev-point (point)))
@@ -140,6 +142,8 @@
 (defun ryan-python-expand-after-yasnippet ()
   (interactive)
   ;;2) Try indent at beginning of the line
+ (progn
+  (message "inside ryan-python-expand-after-yasnippet")
   (let ((prev-point (point))
         (beginning-of-line nil))
     (save-excursion
@@ -147,17 +151,29 @@
       (if (eql 0 (string-match "\\W*$" (buffer-substring (point) prev-point)))
           (setq beginning-of-line t)))
     (if beginning-of-line
-        (ryan-indent)))
+        (progn
+         (message "ryan-indent")
+         (ryan-indent))))
   ;;3) Try autocomplete if at the end of a line, or
   ;;4) Try autocomplete if the next char is not alpha-numerical
   (if (or (string-match "\n" (buffer-substring (point) (+ (point) 1)))
           (not (string-match "[a-zA-Z0-9]" (buffer-substring (point) (+ (point) 1)))))
-      (ac-start)
+      (progn
+        (message "ac-start")
+        (ac-start))
     ;;5) Try a regular indent
     (if (not (ryan-indent))
+
         ;;6) Try autocomplete at the end of a word
         (if (string-match "\\W" (buffer-substring (point) (+ (point) 1)))
-            (ac-start)))))
+            (progn
+              (message "ac-start")
+              (ac-start))
+            (message "No match at end of word"))
+
+        (message "Tried ryan-indent"))
+    (message "Not at end of line or middle of word"))
+))
 
 ;; End Tab completion
 
@@ -214,7 +230,6 @@
 
 
 ;;Flymake with Pyflakes
-;;Disabling for now, it's really quite buggy.
 
 (require 'flymake)
 (load-library "flymake-cursor")
@@ -232,3 +247,52 @@
 (custom-set-faces
  '(flymake-errline ((((class color)) (:background "DarkRed"))))
  '(flymake-warnline ((((class color)) (:background "DarkBlue")))))
+
+
+;;Python indentation functions taken from the std emacs python.el
+;;
+
+(defcustom python-indent 4
+  "Number of columns for a unit of indentation in Python mode.
+  See also `\\[python-guess-indent]'"
+  :group 'python
+  :type 'integer)
+(put 'python-indent 'safe-local-variable 'integerp)
+
+
+(defun python-shift-left (start end &optional count)
+  "Shift lines in region COUNT (the prefix arg) columns to the left.
+COUNT defaults to `python-indent'.  If region isn't active, just shift
+current line.  The region shifted includes the lines in which START and
+END lie.  It is an error if any lines in the region are indented less than
+COUNT columns."
+  (interactive
+   (if mark-active
+       (list (region-beginning) (region-end) current-prefix-arg)
+     (list (line-beginning-position) (line-end-position) current-prefix-arg)))
+  (if count
+      (setq count (prefix-numeric-value count))
+    (setq count python-indent))
+  (when (> count 0)
+    (save-excursion
+      (goto-char start)
+      (while (< (point) end)
+        (if (and (< (current-indentation) count)
+                 (not (looking-at "[ \t]*$")))
+            (error "Can't shift all lines enough"))
+        (forward-line))
+      (indent-rigidly start end (- count)))))
+
+(defun python-shift-right (start end &optional count)
+  "Shift lines in region COUNT (the prefix arg) columns to the right.
+COUNT defaults to `python-indent'.  If region isn't active, just shift
+current line.  The region shifted includes the lines in which START and
+END lie."
+  (interactive
+   (if mark-active
+       (list (region-beginning) (region-end) current-prefix-arg)
+     (list (line-beginning-position) (line-end-position) current-prefix-arg)))
+  (if count
+      (setq count (prefix-numeric-value count))
+    (setq count python-indent))
+  (indent-rigidly start end count))

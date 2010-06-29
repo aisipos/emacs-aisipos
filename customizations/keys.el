@@ -8,3 +8,10 @@
 (global-set-key [(control return)] 'hippie-expand)
 
 (global-set-key [(control tab)] 'auto-complete)
+
+;;Let yas control the tab key behavior for now
+(global-set-key (kbd "TAB") 'yas/expand)
+
+;;some python keys
+(global-set-key (kbd "C-C C-,") 'python-shift-left)
+(global-set-key (kbd "C-C C-.") 'python-shift-right)
