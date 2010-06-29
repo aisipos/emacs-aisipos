@@ -6,3 +6,5 @@
 (global-set-key (kbd "C-`") 'other-frame)
 
 (global-set-key [(control return)] 'hippie-expand)
+
+(global-set-key [(control tab)] 'auto-complete)

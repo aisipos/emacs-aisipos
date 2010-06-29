@@ -36,8 +36,12 @@ expands it. Else calls `smart-indent'."
     (if (smart-tab-must-expand prefix)
         (let ((dabbrev-case-fold-search t)
               (dabbrev-case-replace nil))
-          (funcall (get-completion-function))))
-    (smart-indent)))
+          (progn
+             (message (get-completion-function))
+             (funcall (get-completion-function))))
+    (progn
+      (message "smart-indent")
+      (smart-indent)))))
 
 (defun smart-tab-must-expand (&optional prefix)
   "If PREFIX is \\[universal-argument], answers no.
@@ -45,6 +49,7 @@ Otherwise, analyses point position and answers."
   (unless (or (consp prefix)
               mark-active)
     (looking-at "\\_>")))
+
 (defun smart-indent ()
   "Indents region if mark is active, or current line otherwise."
   (interactive)
