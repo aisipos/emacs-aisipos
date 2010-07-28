@@ -26,9 +26,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 
 ; smart-tab
-(require 'smart-tab)
-(global-smart-tab-mode 1)
-(setq smart-tab-using-hippie-expand nil)
+;(require 'smart-tab)
+;;(global-smart-tab-mode 1)
+;;(setq smart-tab-using-hippie-expand nil)
 
 ; Ack
 (autoload 'ack-same "full-ack" nil t)
@@ -64,4 +64,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (require 'auto-complete-config)
 (ac-config-default)
+
+;;cnf files (like my.cnf) should use conf-mode
+(add-to-list 'auto-mode-alist '("\\.cnf\\'" . conf-mode))
 
