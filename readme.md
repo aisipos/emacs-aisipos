@@ -14,3 +14,10 @@ Here is my Emacs environment, borrowing heavily from
 * smooth scrolling
 * magit
 * auto-complete
+
+##Installation
+* Use git clone to clone this to your ~/.emacs.d directory
+* Before first use, update the "submodules",
+** cd .emacs.d
+** git submodule init
+** git submodule update
