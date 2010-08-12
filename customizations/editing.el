@@ -12,7 +12,7 @@
 ; whitespace
 ;(global-whitespace-mode t)
 (setq show-trailing-whitespace t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;selection
 (pc-selection-mode)
