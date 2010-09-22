@@ -56,8 +56,6 @@
 ;; (vendor 'mo-git-blame)
 (vendor 'smart-tab)
 (vendor 'markdown-mode)
-; load third-party modes that the vendor function can't handle
-;;(add-to-list 'load-path "~/.emacs.d/vendor/js2")
 
 ; Use emacs starter kit customization as a base
 ; starter kit init.el defines dotfiles-dir

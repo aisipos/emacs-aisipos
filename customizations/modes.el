@@ -68,3 +68,6 @@
 ;;cnf files (like my.cnf) should use conf-mode
 (add-to-list 'auto-mode-alist '("\\.cnf\\'" . conf-mode))
 
+;;js2 mode
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
