@@ -49,6 +49,7 @@
 (setq yas/trigger-key (kbd "C-c <kp-multiply>"))
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/snippets")
+(setq yas/prompt-functions '(yas/ido-prompt))
 
 ; winner -mode
 ; allows you to go through your window configurations with c-x left and c-x right
@@ -70,7 +71,7 @@
 
 ;;js2 mode
 (autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;;HTML
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
@@ -79,6 +80,13 @@
 ;;nxhtml
 (load "nxhtml/autostart.el")
 (setq mumamo-background-colors nil)
+;;This doesn't work unless you call django-html-mumamo-mode explicitly
+;;;(add-hook 'django-html-mumamo-mode-hook #'(lambda ()  (setq yas/mode-symbol 'django-mode)))
+;;Instead we'll cheat and associate html mode with django mode for yasnippet, and 
+;;make django mode a child of html mode
+(add-hook 'html-mode-hook #'(lambda ()  (setq yas/mode-symbol 'django-mode)))
+;;For my development, default html mode is django-html-mumamo-mode
+(add-to-list 'auto-mode-alist '("\\.html\\'" .  django-html-mumamo-mode))
 
 
 ;;Hippie expand
