@@ -74,3 +74,7 @@
 
 ;;HTML
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
+
+
+;;nxhtml
+(load "nxhtml/autostart.el")
