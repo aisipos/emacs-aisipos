@@ -236,3 +236,5 @@
 
 ;;ipython
 (require 'ipython)
+;;virtualenv
+(require 'virtualenv)
