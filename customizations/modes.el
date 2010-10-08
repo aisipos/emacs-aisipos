@@ -78,3 +78,23 @@
 
 ;;nxhtml
 (load "nxhtml/autostart.el")
+(setq mumamo-background-colors nil)
+
+
+;;Hippie expand
+(setq hippie-expand-try-functions-list
+      '(
+        yas/hippie-try-expand
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-complete-file-name
+        try-complete-file-name-partially
+        try-complete-lisp-symbol
+        try-complete-lisp-symbol-partially
+        try-expand-line
+        try-expand-line-all-buffers
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-whole-kill))
