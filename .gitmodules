@@ -1,3 +1,6 @@
 [submodule "vendor/smart-tab"]
 	path = vendor/smart-tab
 	url = http://github.com/haxney/smart-tab.git
+[submodule "snippets/text-mode/django-mode"]
+	path = snippets/text-mode/django-mode
+	url = git://github.com/aisipos/yasnippet-django.git
