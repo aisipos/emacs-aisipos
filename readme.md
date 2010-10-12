@@ -21,3 +21,8 @@ Here is my Emacs environment, borrowing heavily from
 ** cd .emacs.d
 ** git submodule init
 ** git submodule update
+* You'll need a script called ~/bin/emacs_ipython that reads like:
+`#!/bin/bash
+source $VIRTUAL_ENV/bin/postactivate
+env python /usr/bin/ipython
+`

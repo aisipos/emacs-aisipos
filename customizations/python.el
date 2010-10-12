@@ -235,6 +235,7 @@
 
 
 ;;ipython
+(setq ipython-command "~/bin/emacs_ipython")
 (require 'ipython)
 ;;virtualenv
 (require 'virtualenv)
