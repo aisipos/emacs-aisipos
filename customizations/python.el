@@ -23,6 +23,7 @@
 (load-library "python-mode")
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("\\.wsgi\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 ;; (setq interpreter-mode-alist
 ;;       (cons '("python" . python-mode)
