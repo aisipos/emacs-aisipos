@@ -56,6 +56,7 @@
 ;; (vendor 'mo-git-blame)
 (vendor 'smart-tab)
 (vendor 'markdown-mode)
+(vendor 'magit)
 
 ; Use emacs starter kit customization as a base
 ; starter kit init.el defines dotfiles-dir
