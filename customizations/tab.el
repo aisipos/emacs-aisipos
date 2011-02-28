@@ -6,7 +6,7 @@
 ;;;
 ;; Smart Tab
 ;; Taken from http://www.emacswiki.org/cgi-bin/wiki/TabCompletion
-(global-set-key [(tab)] 'smart-tab)
+;;(global-set-key [(tab)] 'smart-tab)
 (defvar smart-tab-completion-functions
   '((emacs-lisp-mode lisp-complete-symbol)
     (lisp-mode slime-complete-symbol)
