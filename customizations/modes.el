@@ -40,6 +40,7 @@
 ; Git
 (require 'magit)
 (autoload 'magit-status "magit" nil t)
+(require 'magit-svn)
 
 ;;yasnippet - ideas from EnigmaCurry
 (require 'yasnippet)
